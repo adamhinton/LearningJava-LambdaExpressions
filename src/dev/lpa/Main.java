@@ -74,6 +74,27 @@ public class Main {
         // removeIf is pretty cool, checks for boolean and whacks if so
         list.removeIf(s -> s.equalsIgnoreCase("bravo"));
         list.forEach(s -> System.out.println(s));
+
+        System.out.println("-------");
+
+        list.addAll(List.of("echo", "easy", "earnest"));
+        list.forEach(s -> System.out.println(s));
+
+
+        System.out.println("-------");
+
+        list.removeIf(s-> s.startsWith("ea"));
+        list.forEach(s -> System.out.println(s));
+
+
+        System.out.println("-------");
+
+        calculator((s1, s2) -> s1.concat(s2)  , "Hello", "World");
+        calculator(String::concat, "Hello", "World");
+
+
+
+
     }
 
     public static <T> T calculator(BinaryOperator<T> function, T value1, T value2){
