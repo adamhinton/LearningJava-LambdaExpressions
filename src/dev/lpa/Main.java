@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
+import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -92,8 +94,10 @@ public class Main {
         calculator((s1, s2) -> s1.concat(s2)  , "Hello", "World");
         calculator(String::concat, "Hello", "World");
 
-
-
+        // Interesting that it's, say concat and not concat()
+        BinaryOperator<String> b1 = String::concat;
+        BiFunction <String, String, String> b2 = String::concat;
+        UnaryOperator<String> u1 = String::toUpperCase;
 
     }
 
