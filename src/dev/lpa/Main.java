@@ -67,6 +67,13 @@ public class Main {
         coords.forEach(s -> processPoint(s[0], s[1], p1));
         coords.forEach(s -> processPoint(s[0], s[1], (lat, lng) ->
                 System.out.printf("[lat:%.3f long:%.3f]%n", lat, lng)));
+
+
+        System.out.println("-------");
+
+        // removeIf is pretty cool, checks for boolean and whacks if so
+        list.removeIf(s -> s.equalsIgnoreCase("bravo"));
+        list.forEach(s -> System.out.println(s));
     }
 
     public static <T> T calculator(BinaryOperator<T> function, T value1, T value2){
