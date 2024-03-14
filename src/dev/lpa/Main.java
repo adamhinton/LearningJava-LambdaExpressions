@@ -20,7 +20,23 @@ public class Main {
 
         // yay
         // This is so much like arrow fxns
-        list.forEach((s) -> System.out.println(s));
+        // Only works on functional interfaces - has a single abstract method. We're calling it here.
+        list.forEach( (var myString) -> System.out.println(myString));
+
+        System.out.println("-------");
+
+        // We're using this in the lambda so we can't change it, must be final
+        String prefix = "nato";
+
+        // Can't do this, variable names can't conflict
+        // I would never commit this kind of code war crime anyway
+//        String myString = "fjdisaofas";
+
+        list.forEach((var myString) ->{
+            char first = myString.charAt(0);
+            System.out.println(prefix + " " +  myString + " means " +    first);
+        });
+
 
     }
 }
