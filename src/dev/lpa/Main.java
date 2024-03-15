@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
-import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -88,16 +86,13 @@ public class Main {
         list.removeIf(s-> s.startsWith("ea"));
         list.forEach(s -> System.out.println(s));
 
-
+        list.replaceAll((s) -> s.charAt(0) + " - " + s.toUpperCase());
         System.out.println("-------");
+        list.forEach(s -> System.out.println(s));
 
-        calculator((s1, s2) -> s1.concat(s2)  , "Hello", "World");
-        calculator(String::concat, "Hello", "World");
+        String[] emptyStrings = new String[10];
+        System.out.println(Arrays.toString(emptyStrings));
 
-        // Interesting that it's, say concat and not concat()
-        BinaryOperator<String> b1 = String::concat;
-        BiFunction <String, String, String> b2 = String::concat;
-        UnaryOperator<String> u1 = String::toUpperCase;
 
     }
 
