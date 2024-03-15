@@ -90,8 +90,27 @@ public class Main {
         System.out.println("-------");
         list.forEach(s -> System.out.println(s));
 
+        // prints all nulls right now, as we know
         String[] emptyStrings = new String[10];
         System.out.println(Arrays.toString(emptyStrings));
+        Arrays.fill(emptyStrings, "");
+        System.out.println(Arrays.toString(emptyStrings));
+
+        Arrays.setAll(emptyStrings, (i) -> "" + (i + 1) + ". ");
+        System.out.println(Arrays.toString(emptyStrings));
+
+        Arrays.setAll(emptyStrings, (i) -> "" + (i + 1) + ". "
+            + switch(i){
+            case 0 -> "one";
+            case 1 -> "two";
+            case 3 -> "three";
+            default -> "";
+                }
+        );
+        System.out.println(Arrays.toString(emptyStrings));
+
+
+
 
 
     }
